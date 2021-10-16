@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>这是用户内容数据</title>
+</head>
+<body>
+    <h3>这是用户内容</h3>
+    <div>
+        <table>
+            {% for li in all_list%}
+            <tr>
+                <td>{{li.id}}</td>
+                <td>{{li.phone}}</td>
+                <td>{{li.place}}</td>
+                <td>{{li.times}}</td>
+                <td><a href="/admin/data/del?id={{li.id}}">删除</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

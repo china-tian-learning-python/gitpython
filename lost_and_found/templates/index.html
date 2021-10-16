@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            width : 100%;
+            height : 100%;
+        }
+       .bigBox{
+            width : 1200px;
+            margin : 0 auto;
+
+       }
+       .item{
+            width : 20%;
+            height: 400px;
+
+            margin-left: 40px;
+            float : left;
+            padding-top:10px;
+        }
+        .two {
+            height : 240px;
+            width : 100%;
+
+        }
+        .item div img{
+            width: 100%;
+            height: 100%;
+            box-sizing : border-box;
+         }
+
+    </style>
+</head>
+<body>
+{% block wa %}
+    <div class="top">
+
+    {% if  name  %}
+        <a href="{{url_for('bp_user.one')}}">发布</a>
+        {{name}}
+    <a href="{{url_for('bp_user.pop')}}">注销</a>
+                <a href="{{url_for('bp_bool.wei')}}">未领取</a>
+        <a href="{{url_for('bp_bool.yi')}}">已领取</a>
+        <a href="{{ url_for('bp_bool.admin')}}">内容管理</a>
+<!--        增加一个用户内容管理，一般用来用户的删除-->
+    {% else %}
+    <a href="{{ url_for('bp_user.fun')}}">登录</a>
+    {% endif %}
+    </div>
+{% endblock %}
+    <br>
+    <br>
+    <div class = "bigBox">
+           {% for li in all_list %}
+
+             <div class = "item">
+            <div class="two">
+                <img src="../static/file/{{li.text_1.place}}">
+            </div>
+<!--    在 js 添加两个参数   一个是id地址  另外一个是登录属性  如果登录属性不正确 则判断出没有登录 就提示请登录-->
+                    <p><a href="#" onclick="fun('{{li.text_1.id}}',{{name}})"> 标题 {{li.text_1.title}}</a> </p>
+                     <p><a href="#" onclick="fun('{{li.text_1.id}}',{{name}})"> 状态 {{li.text_2.bool}}</a> </p>
+    <!--                 <p><a href="#" onclick="fun('{{li.text_1.id}},{{name}}')"> id:{{li.text_1.id}}</a> </p>-->
+
+                    <p><a href="#" onclick="fun('{{li.text_1.id}}',{{name}})"> 时间 {{li.text_1.times}}</a> </p>
+                    <p><a href="#" onclick="fun('{{li.text_1.id}}',{{name}})"> 简介 {{li.text_1.text}}</a> </p>
+
+
+        </div>
+    {% endfor%}
+    </div>
+<br>
+<br>
+    <div style="width:200px height:200px">
+
+        <a href="#" onclick="wa({{start}})">上一页</a>
+        <a href="#" onclick="ww({{start}})">下一页</a>
+
+    </div>
+
+</body>
+</html>
+<script>
+    function fun(id,name){
+        id=id
+
+        if(name){
+        location.href='/wood?id='+id
+        };
+
+
+    }
+</script>
+
+<script>
+    function wa(a){
+
+        if (a>=2){
+        location.href='/index?start='+(a-1)+'&pag=4'
+        }
+}
+
+</script>
+<script>
+    function ww(a){
+
+        location.href='/index?start='+(a+1)+'&pag=4'
+
+    }
+</script>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+          form
+            {
+                width:100%;
+                height:630px;
+                 margin-top: 0px;
+                background-color: #AFEEEE;
+            }
+            div
+            {
+                display:inline-block;
+                padding-top: 80px;
+                padding-right: 20px;
+
+            }
+            h2
+            {
+                font-family: "微软雅黑";
+            font-size: 40px;
+                color:black;
+            }
+    </style>
+</head>
+<body>
+
+    <form method="POST" action="{{url_for('bp_user.fun')}}">
+         <center>
+        <div>
+             <h2>
+                    	这是测试
+            </h2>
+        <p>用户名:{{ froms.name }} </p>
+
+        <p> 密&emsp;码:{{ froms.password }} </p>
+
+            <p>{{ froms.sub}}</p>
+            <p>
+                还没有账号？<a href="{{url_for('bp_user.fun2')}}">立即注册</a>
+            </p>
+            </div>
+         </center>
+</form>
+
+
+
+</body>
+</html>

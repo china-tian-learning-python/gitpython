@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    .two {
+            height : 300px;
+            width : 400px;
+
+        }
+         img{
+            width: 100%;
+            height: 100%;
+            box-sizing : border-box;
+         }
+    </style>
+</head>
+<body>
+    {%  for li in all_list %}
+     <p>物品编号:{{li.text_1.id}} </p>
+    <h4>标题 {{li.text_1.title}}</h4>
+    <p>时间 {{li.text_1.times}}</p>
+    <p>简介 {{li.text_1.text}}</p>
+    <p>状态 {{li.text_2.bool}}</p>
+    {% if li.text_2.bool in "未领取" %}
+    <p><button type="submit" onclick="phone('{{li.text_1.id}}')">获取联系方式</button></p>
+    {% else %}
+        电话:{{ li.text_2.phone}}
+    {% endif %}
+    <div class="two">
+                <img src="../static/file/{{li.text_1.place}}">
+            </div>
+    {% endfor %}
+
+    <a href="{{url_for('bp_bool.fu')}}"> 返回</a>
+</body>
+</html>
+
+<script>
+    function phone(id){
+        location.href='/news?id='+id
+    }
+</script>

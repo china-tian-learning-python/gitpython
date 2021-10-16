@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="top">
+
+    {% if  name  %}
+        <a href="{{url_for('bp_user.one')}}">发布</a>
+        {{name}}
+    <a href="{{url_for('bp_user.pop')}}">注销</a>
+<!--                <a href="{{url_for('bp_bool.wei')}}">已领取</a>-->
+<!--        <a href="{{url_for('bp_bool.yi')}}">未领取</a>-->
+        <a href="{{url_for('bp_bool.fu')}}">返回</a>
+<!--        增加一个用户内容管理，一般用来用户的删除-->
+    {% else %}
+    <a href="{{ url_for('bp_user.fun')}}">登录</a>
+    {% endif %}
+    </div>
+ <table>
+    {% for li in all_list %}
+
+          <tr>
+              <td>{{ li.id }}</td>
+              <td>{{ li.user_id}}</td>
+              <td>{{ li.bool}}</td>
+              <td>{{ li.phone}}</td>
+              <td><a href="/tree?id={{li.id}}">删除</a></td>
+              <td><a href="">修改</a></td>
+
+          </tr>
+
+
+    {% endfor %}
+     </table>
+</body>
+</html>
+<script>
+    funtion tr(id){
+<!--        id=id-->
+<!--        location.href='/wood?name='+id-->
+    }
+</script>

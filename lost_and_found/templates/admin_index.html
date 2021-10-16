@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>这是管理员的首页</title>
+</head>
+<body>
+    <h2>这是管理员的首页</h2>
+
+    {%  for li in  wa %}
+    <table>
+        <tr>
+            <td>{{li.id}}</td>
+            <td>{{li.phone}}</td>
+            <td><a href="/admin/del?id={{li.id}}">删除</a></td>
+<!--            <td><a href="{{url_for('bp_admin.admin_ban')}}">封号</a></td>-->
+            <td><button type="submit" onclick="wt('{{li.id}}')">封号</button></td>
+
+        </tr>
+    </table>
+    {% endfor %}
+    <p><a href="{{url_for('bp_admin.admin_data')}}">这是用户内容中心</a></p>
+</body>
+</html>
+<script>
+       function wt(tr){
+
+        location.href='/admin/ban?id='+tr
+
+    }
+</script>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>这是封号首页</title>
+    你将要对{{id}}用户进行封号处理
+</head>
+<body>
+
+    <button type="submit" onclick="wa('{{id}}','1分钟')">1分钟</button>
+<!--    <button type="submit" onclick="wa('{{id}}','1小时')">1小时</button>-->
+    <button type="submit" onclick="wa('{{id}}','一天')">一天</button>
+    <button type="submit" onclick="wa('{{id}}','永久')">永久</button>
+
+
+</body>
+</html>
+<script>
+    function wa(id,time){
+        id=id
+        time=time
+        location.href='/admin/ban?id='+id+'&time='+time
+
+    }
+</script>

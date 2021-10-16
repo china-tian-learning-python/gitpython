@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="{{ url_for('bp_user.fun2')}}" method="POST" >
+    <center>
+        <div>
+            <h2>
+                这是测试注册
+                </h2>
+                <p>
+                    账&emsp;&emsp;号:{{form.name}}
+                </p>
+                <p>
+                    密&emsp;&emsp;码:{{form.pwd}}
+                </p>
+                <p>
+                    确认密码:{{form.pwd2}}
+                </p>
+                <p>
+                    手机号码:{{form.phone}}
+                </p>
+                <p>
+                    {{form.sub}}
+                </p>
+        </div>
+    </center>
+</form>
+</body>
+</html>

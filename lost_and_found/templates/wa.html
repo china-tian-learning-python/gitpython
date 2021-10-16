@@ -1,0 +1,17 @@
+{%  extends 'index.html' %}
+
+{% block wa %}
+ <div class="top">
+
+    {% if  name  %}
+        <a href="{{url_for('bp_user.one')}}">发布</a>
+        {{name}}
+    <a href="{{url_for('bp_user.pop')}}">注销</a>
+
+     <a href="{{url_for('bp_bool.fu')}}">首页</a>
+
+    {% else %}
+    <a href="{{ url_for('bp_user.fun')}}">登录</a>
+    {% endif %}
+ </div>
+{% endblock %}
